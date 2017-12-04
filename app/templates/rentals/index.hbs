@@ -1,0 +1,14 @@
+{{#each model as |rental|}}
+<article class="listing">
+    <h3>{{link-to rental.name "rentals.show" rental}}</h3>
+    <div class="detail name">
+        <span>Name:</span> {{rental.name}}
+    </div>
+    <div class="detail daily_rate">
+        <span>Daily rate: {{rental.daily_rate}} €</span>
+    </div>
+    <div class="">
+        {{link-to "See Bookings" "rentals.rental-bookings" rental}}
+    </div>
+</article>
+{{/each}}

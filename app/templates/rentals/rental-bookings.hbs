@@ -1,0 +1,17 @@
+<h3>Bookings for Rental {{model.name}}</h3>
+{{#each model.bookings as |booking|}}
+<article class="listing">
+    <div class="detail name">
+        <span>Email: {{booking.client_email}}</span>
+    </div>
+    <div class="detail name">
+        <span>Start at: {{booking.start_at}}</span>
+    </div>
+    <div class="detail daily_rate">
+        <span>End at: {{booking.end_at}}</span>
+    </div>
+    <div class="detail daily_rate">
+        <span>Price: {{booking.price}}€</span>
+    </div>
+</article>
+{{/each}}
