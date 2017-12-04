@@ -4,13 +4,25 @@ import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
 import DS from 'ember-data';
 
+import { computed } from '@ember/object';
+
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver
 });
 
-App.ApplicationAdapter = DS.RESTAdapter.extend({
+/**
+ * TODO: Check this out, it's not working yet.
+ * API authenticable is pending.
+ */
+App.ApplicationAdapter = DS.JSONAPIAdapter.extend({
+  headers: {
+    'API_KEY': 'secret key'
+  }
+});
+
+App.ApplicationAdapter = DS.JSONAPIAdapter.reopen({
   host: 'http://localhost:3000'
 });
 
